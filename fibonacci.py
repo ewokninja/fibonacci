@@ -42,6 +42,8 @@ class SequenceUI(object):
         b = 1
         cnt = int(self.spn.get())
 
+        self.clear_list()
+
         if cnt < 1:
             cnt = 1
             self.add_to_list('Iterating once only.')
