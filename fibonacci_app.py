@@ -1,5 +1,4 @@
-import tkinter
-from tkinter import *
+import tkinter as tk
 from tkinter import ttk
 
 
@@ -24,7 +23,7 @@ def compute_fibonacci(count):
 class SequenceUI(object):
 
     def __init__(self):
-        self.root = tkinter.Tk()
+        self.root = tk.Tk()
         self.style = ttk.Style()
 
         # Setup references
@@ -32,9 +31,9 @@ class SequenceUI(object):
         self.btn = ttk.Button(self.frm, text='Start', command=self.fibonacci)
         self.clr = ttk.Button(self.frm, text='Clear', command=self.clear_list)
         self.lbl = ttk.Label(self.frm, text='Times to iterate:')
-        self.spn = Spinbox(self.frm, from_=1, to=100)
-        self.lb = Listbox(self.frm)
-        self.sb = Scrollbar(self.frm, orient=VERTICAL)
+        self.spn = tk.Spinbox(self.frm, from_=1, to=100)
+        self.lb = tk.Listbox(self.frm)
+        self.sb = tk.Scrollbar(self.frm, orient=tk.VERTICAL)
 
         # Configuration
         self.sb.config(command=self.lb.yview)
@@ -42,25 +41,20 @@ class SequenceUI(object):
 
         # Pack it all up
         self.frm.pack(expand=True, fill='both')
-        self.sb.pack(side=RIGHT, fill=Y)
-        self.lb.pack(fill=BOTH, expand=True)
-        self.lbl.pack(side=LEFT)
-        self.spn.pack(side=LEFT)
+        self.sb.pack(side=tk.RIGHT, fill=tk.Y)
+        self.lb.pack(fill=tk.BOTH, expand=True)
+        self.lbl.pack(side=tk.LEFT)
+        self.spn.pack(side=tk.LEFT)
         self.clr.pack()
         self.btn.pack()
 
     def add_to_list(self, item):
-        self.lb.insert(END, item)
+        self.lb.insert(tk.END, item)
 
     def clear_list(self):
-        self.lb.delete(0, END)
+        self.lb.delete(0, tk.END)
 
     def fibonacci(self):
-<<<<<<< HEAD:fibonacci_app.py
-=======
-        a = 0
-        b = 1
->>>>>>> master:fibonacci.py
         try:
             cnt = int(self.spn.get())
         except (TypeError, ValueError):
