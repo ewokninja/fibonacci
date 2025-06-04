@@ -56,6 +56,11 @@ class SequenceUI(object):
         self.lb.delete(0, END)
 
     def fibonacci(self):
+<<<<<<< HEAD:fibonacci_app.py
+=======
+        a = 0
+        b = 1
+>>>>>>> master:fibonacci.py
         try:
             cnt = int(self.spn.get())
         except (TypeError, ValueError):
