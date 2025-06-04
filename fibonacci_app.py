@@ -3,6 +3,24 @@ from tkinter import *
 from tkinter import ttk
 
 
+def compute_fibonacci(count):
+    """Return a list containing ``count`` Fibonacci numbers."""
+    if count < 1:
+        raise ValueError("count must be >= 1")
+
+    a, b = 0, 1
+    result = [a]
+
+    if count == 1:
+        return result
+
+    result.append(b)
+    for _ in range(count - 2):
+        a, b = b, a + b
+        result.append(b)
+    return result
+
+
 class SequenceUI(object):
 
     def __init__(self):
@@ -38,8 +56,11 @@ class SequenceUI(object):
         self.lb.delete(0, END)
 
     def fibonacci(self):
+<<<<<<< HEAD:fibonacci_app.py
+=======
         a = 0
         b = 1
+>>>>>>> master:fibonacci.py
         try:
             cnt = int(self.spn.get())
         except (TypeError, ValueError):
@@ -55,26 +76,11 @@ class SequenceUI(object):
             cnt = 100
             self.add_to_list('Capping iteration at {}'.format(cnt))
 
-        if cnt == 1:
-            self.add_to_list(a)
-            return
+        for num in compute_fibonacci(cnt):
+            self.add_to_list(num)
 
-        if cnt == 2:
-            self.add_to_list(a)
-            self.add_to_list(b)
-            return
-
-        self.add_to_list(a)
-        self.add_to_list(b)
-        cnt = cnt-2
-
-        for _ in range(cnt):
-            tmp = a+b
-            self.add_to_list(tmp)
-            a = b
-            b = tmp
-
-app = SequenceUI()
-app.root.title('Sequence This')
-app.root.minsize(200, 100)
-app.root.mainloop()
+if __name__ == '__main__':
+    app = SequenceUI()
+    app.root.title('Sequence This')
+    app.root.minsize(200, 100)
+    app.root.mainloop()
