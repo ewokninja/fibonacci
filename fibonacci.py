@@ -40,7 +40,11 @@ class SequenceUI(object):
     def fibonacci(self):
         a = 0
         b = 1
-        cnt = int(self.spn.get())
+        try:
+            cnt = int(self.spn.get())
+        except (TypeError, ValueError):
+            cnt = 1
+            self.add_to_list('Invalid input, iterating once only.')
 
         self.clear_list()
 
