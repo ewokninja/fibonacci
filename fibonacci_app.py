@@ -19,7 +19,7 @@ def compute_fibonacci(count):
         result.append(b)
     return result
 
-
+""" UI method """
 class SequenceUI(object):
 
     def __init__(self):
